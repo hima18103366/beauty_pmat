@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
-<p>{{$category->Fname}}</p>
-<p>{{$category->Lname}}</p>
+
+<p>{{$category->name}}</p>
+<p>{{$category->details}}</p>
 @endsection

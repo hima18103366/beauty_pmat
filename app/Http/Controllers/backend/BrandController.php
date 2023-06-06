@@ -21,13 +21,24 @@ class BrandController extends Controller
         // dd($request);
         $request->validate([
             'name'=>'required',
+            'image'=>'required',
             'email'=>'required|unique:brands',
         ]);
+
+       $fileName=null;
+       if ($request->hasFile('image')){
+        $fileName='hima'.date('Ymdhmsis').'.'.$request->file('image')->getClientOriginalExtension();
+        $request->file('image')->storeAs('/uploads/brand',$fileName);
+       }
+
+
+
 
         Brand::create([
             // db column name => form input name 
             'name'=>$request->name,
             'email'=>$request->email,
+            'image'=>$fileName,
             'details'=>$request->details
         ]);
         
@@ -45,6 +56,7 @@ class BrandController extends Controller
         $brandData->update([
             'name'=>$request->name,
             'email'=>$request->email,
+        
             'details'=>$request->details
         ]);
         return to_route('brand.index')->with('success','brand Updated Successfully');

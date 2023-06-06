@@ -74,6 +74,7 @@ Route::get('/produets-create',[produetsController::class,'create'])->name('produ
 Route::post('/produets-store',[produetsController::class,'store'])->name('produets.store');
 
 
+
 });
 
 

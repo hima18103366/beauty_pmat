@@ -7,14 +7,16 @@
 @method('PUT')
   <div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="validationDefault01">First name</label>
-      <input type="text" class="form-control" id="validationDefault01" name="Fname" placeholder="First name" value="{{$category->Fname}}" required>
+      <label for="validationDefault01">name</label>
+      <input type="text" class="form-control" id="validationDefault01" name="Fname" placeholder="name" value="{{$category->name}}" required>
       
     </div>
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">Last name</label>
-      <input type="text" class="form-control" id="validationDefault02" name="Lname" placeholder="Last name" value="{{$category->Lname}}" required>
+      <label for="validationDefault02">details</label>
+      <input type="text" class="form-control" id="validationDefault02" name="details" placeholder="details" value="{{$category->details}}" required>
     </div>
+
+    
     <!-- <div class="col-md-4 mb-3">
       <label for="validationDefaultUsername">Username</label>
       <div class="input-group">

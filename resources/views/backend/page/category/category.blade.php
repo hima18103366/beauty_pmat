@@ -28,9 +28,9 @@
             <td>{{$data->details}}</td>
             
             <td>
-                <a href="{{route('category.edit',$data->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('category.edit',$data->id)}}" class="btn btn-success">Edit</a>
                 <a href="{{route('category.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="{{route('category.view',$data->id)}}" class="btn btn-success">View</a>
+                <a href="{{route('category.view',$data->id)}}" class="btn btn-primary">View</a>
             </td>
         </tr>
 
