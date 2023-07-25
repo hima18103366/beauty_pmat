@@ -8,7 +8,7 @@
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationDefault01">name</label>
-      <input type="text" class="form-control" id="validationDefault01" name="Fname" placeholder="name" value="{{$category->name}}" required>
+      <input type="text" class="form-control" id="validationDefault01" name="name" placeholder="name" value="{{$category->name}}" required>
       
     </div>
     <div class="col-md-4 mb-3">
@@ -16,6 +16,10 @@
       <input type="text" class="form-control" id="validationDefault02" name="details" placeholder="details" value="{{$category->details}}" required>
     </div>
 
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault02">status</label>
+      <input type="text" class="form-control" id="validationDefault02" name="status" placeholder="status" value="{{$category->status}}" required>
+    </div>
     
     <!-- <div class="col-md-4 mb-3">
       <label for="validationDefaultUsername">Username</label>

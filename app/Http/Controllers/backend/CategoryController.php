@@ -16,7 +16,7 @@ class CategoryController extends Controller
     }
     public function cat(){
 
-        $cat=category::all();
+        $cat=category::paginate(5);
        // dd($cat);
         return view('backend.page.Category.category',compact('cat'));
     }
@@ -54,6 +54,10 @@ class CategoryController extends Controller
 
     public function store (Request $request)
     {
+        $request->validate([
+            'name'=>'required',
+            'details'=>'required|min:10|max:255'
+        ]);
         category::create([
 
             'name'=>$request->name,

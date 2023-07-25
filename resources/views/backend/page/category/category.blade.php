@@ -24,8 +24,8 @@
         
         <tr>
             <th>{{$data->id}}</th>
-            <td>{{$data->name}}</td>
             <td>{{$data->details}}</td>
+            <td>{{$data->name}}</td>
             
             <td>
                 <a href="{{route('category.edit',$data->id)}}" class="btn btn-success">Edit</a>
@@ -38,6 +38,7 @@
         @endforeach
     </tbody>
 </table>
+{{$cat->links()}}
 </body>
 </html>
 @endsection

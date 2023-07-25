@@ -7,10 +7,7 @@
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="{{route('category.table')}}" class="nav-link" >Categories</a>
-                        
-
-                        
+                        <a href="{{route('category.table')}}" class="nav-link"><i class="fa fa-keyboard me-2"></i>Categories</a>  
                     </div>
 
 
@@ -33,12 +30,37 @@
 
 
                     
+                   
+                    <a href="{{route('customer.table')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Coustomers</a>
+
+                    <a href="{{route('beautician.table')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Beautician</a>
+
+                    <a href="{{route('doctor.table')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Doctor</a>   
+
+
+
+                    
+                    <a href="{{route('payment.table')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Payment</a>
+                    <a href="{{route('service.table')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Service</a>
+
+                    <a href="{{route('appointment.table')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Appointment</a>
+                        
+
+
+
+
+
+
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Appointment      Details</a>
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Report</a>
+
+
+
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Feedback</a>
+                    
+{{-- 
                     <a href="{{route('produets.index')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Produets</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Coustomers</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Employee</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Doctor</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Order</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Users</a>
+                    --}}
                 </div>
             </nav>
         </div>

@@ -1,22 +1,28 @@
 @extends('master')
 @section('content')
-
+  @if($errors->any())
+    @foreach($errors->all() as $error)
+      <div>
+        <p class="alert alert-danger">{{$error}}</p>
+      </div>
+    @endforeach
+  @endif
 
 <form action="{{route('category.store')}}" method="post">
   
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationDefault01">name</label>
-      <input type="text" class="form-control" id="validationDefault01" name="name" placeholder="Enter Your name" value="Mark" required>
+      <input type="text" class="form-control" id="validationDefault01" name="name" placeholder="Enter Your name" value="" required>
       @csrf
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">details</label>
-      <input type="text" class="form-control" id="validationDefault02" name="details" placeholder="details" value="Otto" required>
+      <input type="text" class="form-control" id="validationDefault02" name="details" placeholder="details" value="" required>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">status</label>
-      <input type="text" class="form-control" id="validationDefault02" name="status" placeholder="status" value="Otto" required>
+      <input type="text" class="form-control" id="validationDefault02" name="status" placeholder="status" value="" required>
     </div>
     <!-- <div class="col-md-4 mb-3">
       <label for="validationDefaultUsername">Username</label>
