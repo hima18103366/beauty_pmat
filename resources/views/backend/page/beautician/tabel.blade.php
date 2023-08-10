@@ -40,6 +40,11 @@
                 <td>{{$data->time}}</td>
                 <td>{{$data->comments}}</td>
                 <td>{{$data->status}}</td>
+                <td>
+                <a href="{{route('category.edit',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('category.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                <a href="{{route('category.view',$data->id)}}" class="btn btn-primary">View</a>
+            </td>
             </tr>
             
             @endforeach  

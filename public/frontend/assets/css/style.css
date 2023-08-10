@@ -392,6 +392,7 @@ ul.email li a {
 
 .banner_main {
      background: url(../images/banner.jpg);
+     transition-duration: 90000000000000000s;
      background-repeat: no-repeat;
      padding-top: 190px;
      background-size: 100% 100%;

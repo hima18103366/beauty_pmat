@@ -138,7 +138,7 @@
                <div class="col-md-4">
                   <div id="hover_chang" class="service_box">
                      <i><img src="{{url('/frontend/assets/images/thr.png')}}" alt="#"/></i>
-                     <h3>Cosmetic</h3>
+                     <h3>jsdjflskdc</h3>
                      <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
                   </div>
                </div>
@@ -164,19 +164,13 @@
       </div>
       <!-- service -->
       <!-- about -->
-      <div id="about"  class="about">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-9">
-                  <div class="titlepage">
-                     <h2> <img src="images/head.h.png" alt="#"/> About Our Labspa</h2>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                     <a class="read_more">Read More</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+         
+
+      @include('frontend.pages.page')
+
+
+
+
       <!-- end about -->
       <!-- customer -->
       <div id="customer" class="customer">

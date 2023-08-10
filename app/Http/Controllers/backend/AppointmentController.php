@@ -21,7 +21,8 @@ class AppointmentController extends Controller
     {
          
         $request->validate([
-            'customer_name'=>'required',
+            'name'=>'required',
+            'service'=>'required',
             'date'=>'required',
             'time'=>'required',
             'age'=>'required',
@@ -31,14 +32,44 @@ class AppointmentController extends Controller
         // dd($request->all());
         Appointment::create([ 
 
-            'customer_name'=>$request->customer_name,
+            'customer_name'=>$request->name,
+            'service'=>$request->service,
             'date'=>$request->date,
             'time'=>$request->time,
             'age'=>$request->age,
-            'contact_num'=>$request->contact_num,
+            'contact_num'=>$request->contact,
 
         ]);
         return redirect()->route('appointment.table');
 
     }
+
+    public function fform ()
+    {
+        return view('frontend.pages.appointment.fform');
+    }
+    public function store_form(Request $request){
+        // dd($request->all());
+        $request->validate([
+            'name'=>'required',
+            'service'=>'required',
+            'date'=>'required',
+            'time'=>'required',
+            'age'=>'required',
+            'contact'=>'required',
+        ]);
+        //  dd($request->all());
+
+        appointment::create([
+            'customer_name'=>$request->name,
+            'service'=>$request->service,
+            'date'=>$request->date,
+            'time'=>$request->time,
+            'age'=>$request->age,
+            'contact_num'=>$request->contact,
+        ]);
+
+        return to_route('homepage');
+    }
+
 }

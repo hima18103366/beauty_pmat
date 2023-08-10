@@ -51,7 +51,8 @@
 
 
 
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Appointment      Details</a>
+                    <a href="{{route('dappointment.table')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Doctor
+                    Appointment </a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Report</a>
 
 

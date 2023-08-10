@@ -47,8 +47,7 @@
          <div id="banner1" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                <li data-target="#banner1" data-slide-to="0" class="active"></li>
-               <li data-target="#banner1" data-slide-to="1"></li>
-               <li data-target="#banner1" data-slide-to="2"></li>
+              
             </ol>
             <div class="carousel-inner">
                <div class="carousel-item active">
@@ -58,9 +57,11 @@
                            <div class="col-md-6">
                               <div class="text-bg">
                                  <span>Welcome to</span>
-                                 <h1>labspa</h1>
+                                 <h1>DBPAT</h1>
+                                 <h2>Digital Beauty Parlour And Treatment</h2>
                                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                                 <a href="#">Read More </a> <a href="#">Book Now</a>
+                                 <a href="#">Doctor Appointment </a> 
+                                 <a href="{{route('appointment.fform')}}">Beautician Appointment</a>
                               </div>
                            </div>
                            <div class="col-md-6">
@@ -72,57 +73,8 @@
                      </div>
                   </div>
                </div>
-               <div class="carousel-item">
-                  <div class="container-fluid">
-                     <div class="carousel-caption">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <div class="text-bg">
-                                 <span>Welcome to</span>
-                                 <h1>labspa</h1>
-                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                                 <a href="#">Read More </a> <a href="#">Book Now</a>
-                              </div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="text_img">
-                                 <figure><img src="{{url('/frontend/assets/images/girl.png')}}" alt="#"/></figure>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container-fluid">
-                     <div class="carousel-caption">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <div class="text-bg">
-                                 <span>Welcome to</span>
-                                 <h1>labspa</h1>
-                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                                 <a href="#">Read More </a> <a href="#">Book Now</a>
-                              </div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="text_img">
-                                 <figure><img src="{{url('/frontend/assets/images/girl.png')}}" alt="#"/></figure>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
-            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-            </a>
-            <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
-            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-            </a>
-         </div>
-      </section>
+               
+            
       <!-- end banner -->
       <!-- service -->
       <div id="service"  class="service">
@@ -135,27 +87,17 @@
                </div>
             </div>
             <div class="row">
+
+            @foreach($services as $servic)
                <div class="col-md-4">
                   <div id="hover_chang" class="service_box">
-                     <i><img src="{{url('/frontend/assets/images/thr.png')}}" alt="#"/></i>
-                     <h3>Cosmetic</h3>
-                     <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
+                     <i><img src="{{url('/uploads/service/'.$servic->image)}}" alt="#"/></i>
+                     <h3>{{$servic->service}}</h3>
+                     <p>{{$servic->description}}</p>
                   </div>
                </div>
-               <div class="col-md-4">
-                  <div id="hover_chang" class="service_box">
-                     <i><img src="{{url('/frontend/assets/images/thr1.png')}}" alt="#"/></i>
-                     <h3>nails</h3>
-                     <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div id="hover_chang" class="service_box">
-                     <i><img src="{{url('/frontend/assets/images/thr2.png')}}" alt="#"/></i>
-                     <h3>hairdressing</h3>
-                     <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                  </div>
-               </div>
+               @endforeach
+               
                <div class="col-md-12">
                   <a class="read_more" href="#">Read More</a>
                </div>
@@ -169,8 +111,13 @@
             <div class="row">
                <div class="col-md-9">
                   <div class="titlepage">
-                     <h2> <img src="images/head.h.png" alt="#"/> About Our Labspa</h2>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
+                     <h2> <img src="images/head.h.png" alt="#"/> About Our DBPAT </h2>
+                     <p>Welcome to "Digital Beauty Parlour And Treatment" - the ultimate destination for all your beauty and wellness needs! Nestled in the heart of the city, 
+our beauty parlour offers a unique and holistic approach to beauty with a team of highly qualified professionals.
+At the heart of our beauty parlour is our team of experts. We take pride in having a harmonious blend of both doctors and beauticians to provide you with the best of both worlds.
+ Our resident doctors are a board-certified dermatologist and a specialist in aesthetic medicine. they carefully curates and oversees all our skincare treatments, 
+ ensuring that each one is personalized to meet your unique needs.
+ </p>
                      <a class="read_more">Read More</a>
                   </div>
                </div>

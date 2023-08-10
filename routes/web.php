@@ -6,16 +6,15 @@ use App\Http\Controllers\auth\authController;
 use App\Http\Controllers\backend\BrandController;
 use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\backend\DoctorController;
-use App\Http\Controllers\backend\CustomerControlle;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\ProduetsController;
 use App\Http\Controllers\frontend\HomepageController;
 use App\Http\Controllers\backend\BeauticianController;
 use App\Http\Controllers\backend\AppointmentController;
-
-
+use App\Http\Controllers\backend\DAppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +29,12 @@ use App\Http\Controllers\backend\AppointmentController;
 
 #Frontend
 
+// Route::get('/',[HomepageController::class,'home'])->name('homepage');
 Route::get('/',[HomepageController::class,'home'])->name('homepage');
 
 Route::get('/hlogin',[HomepageController::class,'hlogin'])->name('hlogin');
+Route::get('/appointment-fform',[AppointmentController::class,'fform'])->name('appointment.fform');
+Route::post('/store_form',[AppointmentController::class,'store_form'])->name('store.form');
 
 
                        //register
@@ -43,6 +45,10 @@ Route::post('/register-submit',[authController::class,'register_submit'])->name(
                           //login
 Route::get('/login',[authController::class,'login'])->name('login');
 Route::post('/login-submit',[authController::class,'login_submit'])->name('login.submit');
+
+
+#Home page
+Route::get('/home-page',[HomepageController::class,'page'])->name('home.page');
 
 
 
@@ -91,7 +97,14 @@ Route::post('/produets-store',[produetsController::class,'store'])->name('produe
 
 
 #customer backend
-Route::get('/customer-table',[CustomerControlle::class,'table'])->name('customer.table');
+Route::get('/customer-table',[CustomerController::class,'table'])->name('customer.table');
+Route::get('/customer-form',[CustomerController::class,'form'])->name('customer.form');
+Route::post('/customer-store',[CustomerController::class,'store'])->name('customer.store');
+Route::get('/customer-edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
+Route::put('/customer-update/{id}',[CustomerController::class,'update'])->name('customer.update');
+Route::get('/customer-delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
+Route::get('/customer/view/{id}',[CustomerController::class,'view'])->name('customer.view');
+
 
 
 
@@ -139,6 +152,15 @@ Route::post('/service-store',[ServiceController::class,'store'])->name('service.
 Route::get('appointment/table',[AppointmentController::class,'table'])->name('appointment.table');
 Route::get('/appointment-form',[AppointmentController::class,'form'])->name('appointment.form');
 Route::post('/appointment-store',[AppointmentController::class,'store'])->name('appointment.store');
+
+
+
+
+
+Route::get('dappointment/table',[DAppointmentController::class,'table'])->name('dappointment.table');
+Route::get('/dappointment-form',[DAppointmentController::class,'form'])->name('dappointment.form');
+Route::post('/dappointment-store',[DAppointmentController::class,'store'])->name('dappointment.store');
+
 
 
 

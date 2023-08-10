@@ -1,14 +1,61 @@
-@extends('master')
-@section('content')
+
 <html>
+
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input.form-control {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
 
 <body>
 
-<form action="{{route('appointment.store')}}" method="POST">
+<form action="{{route('store.form')}}" method="POST">
   @csrf
     <label for="name">Customer Name:</label>
     <input class="form-control" type="text" id="name" name="name" required><br>
     <br>
+
     <label for="service">Service:</label>
     <select class="form-control" id="service" name="service" required>
       <option value="">Select a service</option>
@@ -19,10 +66,13 @@
       <option value="Facial">Facial</option>
     </select><br>
      <br>
+    
   
     <label for="date">Date:</label>
-    <input class="form-control" type="date" id="date" name="date" required><br>
+    <input class="form-control" type="date" id="date" name="date" required>
+
     <br>
+    
     
     <label for="time">Time:</label>
     <select class="form-control" id="time" name="time" required>
@@ -40,8 +90,10 @@
       <option value="06:00 PM">06:00 PM</option>
       <option value="07:00 PM">07:00 PM</option>
       <option value="08:00 PM">08:00 PM</option>
+    </select><br>
+    <br>
     <label for="age">age:</label>
-    <input class="form-control" type="tel" id="age" name="age" required><br>
+    <input class="form-control" type="number" id="age" name="age" required><br>
     <br>
     
     <label for="phone">Contact Number:</label>
@@ -56,4 +108,4 @@
 
 </html>
 
-@endsection
+
