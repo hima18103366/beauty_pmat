@@ -4,7 +4,7 @@
 
 <html> 
     <body>
-        <h1>Appointment Table</h1>
+        <h1>Doctor Appointment Table</h1>
 
         <a class="btn btn-primary" href="{{route('dappointment.form')}}">create</a>
         
@@ -32,14 +32,17 @@
                 <td>{{$data->age}}</td>
                 <td>{{$data->contact_num}}</td>
                 <td>
-                <a href="{{route('category.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                <a href="{{route('category.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="{{route('category.view',$data->id)}}" class="btn btn-primary">View</a>
+                <a href="{{route('dappointment.edit',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('dappointment.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                <a href="#" class="btn btn-primary">Token</a>
+                <a href="{{route('dappointment.prescription')}}" class="btn btn-primary">Prescription</a>
+                
             </td>
             </tr>
             
             @endforeach  
         </tbody>
+        {{$dappointment->links()}}
     </table>
     
     

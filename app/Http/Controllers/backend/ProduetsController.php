@@ -11,7 +11,7 @@ class ProduetsController extends Controller
 {
     public function index(){
 
-        $produets=Produets::all();
+        $produets=Produets::paginate(5);
       //dd($produets);
       
         return view('backend.page.produets.index',compact('produets'));

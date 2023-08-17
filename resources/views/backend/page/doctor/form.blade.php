@@ -7,7 +7,8 @@
 <body>
     <h1>Doctor Appointment Form</h1>
     
-    <form action="submit.php" method="POST">
+    <form action="{{route('doctor.store')}}" method="POST">
+    @csrf
         <label for="name">Name:</label>
         <input class="form-control" type="text" id="name" name="name" required><br><br>
         

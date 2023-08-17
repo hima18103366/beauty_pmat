@@ -6,11 +6,13 @@ use App\Http\Controllers\auth\authController;
 use App\Http\Controllers\backend\BrandController;
 use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\backend\DoctorController;
+use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\ProduetsController;
+use App\Http\Controllers\backend\FCustomerController;
 use App\Http\Controllers\frontend\HomepageController;
 use App\Http\Controllers\backend\BeauticianController;
 use App\Http\Controllers\backend\AppointmentController;
@@ -32,9 +34,27 @@ use App\Http\Controllers\backend\DAppointmentController;
 // Route::get('/',[HomepageController::class,'home'])->name('homepage');
 Route::get('/',[HomepageController::class,'home'])->name('homepage');
 
+
+#frontend loging
 Route::get('/hlogin',[HomepageController::class,'hlogin'])->name('hlogin');
+Route::post('/hlogin-submit',[HomepageController::class,'hlogin_submit'])->name('hlogin.submit');
+
+
+
+Route::get('/hregister',[HomepageController::class,'hregister'])->name('hregister');
+Route::post('/hregister-submit',[HomepageController::class,'hregister_submit'])->name('hregister.submit');
+
+
+#Frontent appointment
 Route::get('/appointment-fform',[AppointmentController::class,'fform'])->name('appointment.fform');
 Route::post('/store_form',[AppointmentController::class,'store_form'])->name('store.form');
+# dappointment
+Route::get('/dappointment-fform',[DAppointmentController::class,'dform'])->name('appointment.dform');
+Route::post('/store_dform',[DAppointmentController::class,'store_dform'])->name('store.dform');
+
+Route::get('/customer-logout',[HomepageController::class,'logout'])->name('customer.logout');
+
+
 
 
                        //register
@@ -59,6 +79,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 
 Route::get('/',[AdminController::class,'dashboard'])->name('dashboard');
+
+//logout
+Route::get('/logout',[authController::class,'logout'])->name('logout');
 
 #Category backend
 Route::get('/category-table',[CategoryController::class,'cat'])->name('category.table');
@@ -119,7 +142,9 @@ Route::get('/customer/view/{id}',[CustomerController::class,'view'])->name('cust
 Route::get('beautician/table',[BeauticianController::class,'table'])->name('beautician.table');
 Route::get('/beautician-form',[BeauticianController::class,'form'])->name('beautician.form');
 Route::post('/beautician-store',[BeauticianController::class,'store'])->name('beautician.store');
-
+Route::get('/-edit/{beautician_id}',[BeauticianController::class,'Edit'])->name('beautician.edit');
+Route::put('/beautician-update/{id}',[BeauticianController::class,'update'])->name('beautician.update');
+Route::get('/beautician-delete/{id}',[BeauticianController::class,'delete'])->name('beautician.delete');
 
 
 
@@ -127,6 +152,7 @@ Route::post('/beautician-store',[BeauticianController::class,'store'])->name('be
 #Doctor backend
 Route::get('doctor/table',[DoctorController::class,'table'])->name('doctor.table');
 Route::get('/doctor-form',[DoctorController::class,'form'])->name('doctor.form');
+Route::post('/doctor-store',[DoctorController::class,'store'])->name('doctor.store');
 
 
 
@@ -144,6 +170,9 @@ Route::post('/pyament-store',[PaymentController::class,'store'])->name('payment.
 Route::get('service/table',[ServiceController::class,'table'])->name('service.table');
 Route::get('/service-form',[ServiceController::class,'form'])->name('service.form');
 Route::post('/service-store',[ServiceController::class,'store'])->name('service.store');
+Route::get('/-edit/{service_id}',[ServiceController::class,'Edit'])->name('service.edit');
+Route::put('/service-update/{id}',[ServiceController::class,'update'])->name('service.update');
+Route::get('/service-delete/{id}',[ServiceController::class,'delete'])->name('service.delete');
 
 
 
@@ -152,6 +181,9 @@ Route::post('/service-store',[ServiceController::class,'store'])->name('service.
 Route::get('appointment/table',[AppointmentController::class,'table'])->name('appointment.table');
 Route::get('/appointment-form',[AppointmentController::class,'form'])->name('appointment.form');
 Route::post('/appointment-store',[AppointmentController::class,'store'])->name('appointment.store');
+Route::get('/-edit/{appointment_id}',[AppointmentController::class,'Edit'])->name('appointment.edit');
+Route::put('/appointment-update/{id}',[AppointmentController::class,'update'])->name('appointment.update');
+Route::get('/appointment-delete/{id}',[AppointmentController::class,'delete'])->name('appointment.delete');
 
 
 
@@ -160,9 +192,38 @@ Route::post('/appointment-store',[AppointmentController::class,'store'])->name('
 Route::get('dappointment/table',[DAppointmentController::class,'table'])->name('dappointment.table');
 Route::get('/dappointment-form',[DAppointmentController::class,'form'])->name('dappointment.form');
 Route::post('/dappointment-store',[DAppointmentController::class,'store'])->name('dappointment.store');
+Route::get('/-edit/{dappointment_id}',[DAppointmentController::class,'Edit'])->name('dappointment.edit');
+Route::put('/dappointment-update/{id}',[DAppointmentController::class,'update'])->name('dappointment.update');
+Route::get('/dappointment-delete/{id}',[DAppointmentController::class,'delete'])->name('dappointment.delete');
+Route::get('/dappointment-prescription',[DAppointmentController::class,'prescription'])->name('dappointment.prescription');
+Route::get('/prescription-store',[DAppointmentController::class,'pstore'])->name('prescription.store');
+
+
+#report backent
+Route::get('allreport',[ReportController::class,'all_report'])->name('all.report');
 
 
 
+Route::get('/appointmentreport',[AppointmentController::class,'appointment_report'])->name('appointment.report');
+Route::get('/appointmentreport/search',[AppointmentController::class, 'appointment_report_search'])->name('appointment_report_search');
+
+Route::get('/dappointmentreport',[DAppointmentController::class,'dappointment_report'])->name('dappointment.report');
+Route::get('/dappointmentreport/search',[DAppointmentController::class, 'dappointment_report_search'])->name('dappointment_report_search');
+
+
+Route::get('/customerreport',[CustomerController::class,'customer_report'])->name('customer_report');
+Route::get('/customerreport/search',[CustomerController::class, 'customer_report_search'])->name('customer_report_search');
+
+
+Route::get('/paymenteport',[PaymentController::class,'payment_report'])->name('payment_report');
+Route::get('/paymentreport/search',[PaymentController::class, 'payment_report_search'])->name('payment_report_search');
+
+
+
+
+
+
+// Route::get('/profile',[AdminController::class,'profile'])->name('admin.profile');
 
 });
 

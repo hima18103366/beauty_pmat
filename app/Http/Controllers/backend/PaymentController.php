@@ -38,6 +38,28 @@ class PaymentController extends Controller
 
     }
 
+    public function payment_report(){
+        return view('backend.page.report.payment_report');
+    }
+
+    public function payment_report_search(Request $request){
+
+        $request->validate([
+            'from_date'=>'required|date',
+            'to_date'=>'required|date|after:from_date'
+        ]);
+
+        $from=$request->from_date;
+        $to=$request->to_date;
+
+        $customer=Payment::whereBetween('created_at', [$from , $to])->get();
+        return view('backend.page.report.payment_report',compact('payment'));
+
+    }
+
+
+
+
 }
 
 

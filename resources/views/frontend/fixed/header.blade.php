@@ -28,6 +28,14 @@
                               <li class="nav-item">
                            <a class="nav-link" href="{{route('hlogin')}}">Log in</a>
                               </li>
+   
+                              <li class="nav-item">
+                           <a class="nav-link" href="{{route('hregister')}}">Register</a>
+                              </li>
+                              <li class="nav-item">
+                           <a class="nav-link" href="">Log out</a>
+                              </li>
+
                            </ul>
                         </div>
                      </nav>
@@ -36,7 +44,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                              <a href="index.html"><img src="{{url('frontend/assets/images/logo.png')}}" alt="#" /></a>
+                              <a href="index.html"></a>
                            </div>
                         </div>
                      </div>

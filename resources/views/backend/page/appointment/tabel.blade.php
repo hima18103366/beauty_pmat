@@ -34,14 +34,16 @@
                 <td>{{$data->age}}</td>
                 <td>{{$data->contact_num}}</td>
                 <td>
-                <a href="{{route('category.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                <a href="{{route('category.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="{{route('category.view',$data->id)}}" class="btn btn-primary">View</a>
+                <a href="{{route('appointment.edit',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('appointment.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                <a href="#" class="btn btn-primary">token</a>
+                
             </td>
             </tr>
             
             @endforeach  
         </tbody>
+        {{$appointment->links()}}
     </table>
     
     

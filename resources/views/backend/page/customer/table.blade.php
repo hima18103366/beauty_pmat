@@ -37,6 +37,7 @@
             
             @endforeach  
         </tbody>
+        {{$customer->links()}}
     </table>
     
 </body>

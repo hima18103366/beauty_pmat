@@ -49,4 +49,30 @@ class ServiceController extends Controller
 
     }
 
+
+    public function Edit(int $service_id){
+        $service=Service::find($service_id);
+        return view('backend.page.service.edit',compact('service'));
+    }
+
+
+    public function update(Request $request ,$id){
+        $serviceData = Service::find($id);
+        $serviceData->update([
+            'service'=>$request->service,
+            'description'=>$request->description,
+            'price'=>$request->price,
+           
+        ]);
+        return to_route('service.index')->with('success','service Updated Successfully');
+         
+    }
+
+    public function delete($id){
+        service::find($id)->delete();
+        return back()->with('success','service Deleted Successfully');
+    }
+    
+
+
 }

@@ -29,20 +29,22 @@
                 <td>{{$data->price}}</td>
                 <!-- <td>{{$data->image}}</td> -->
 
-                <td>
-                <a href="{{route('category.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                <a href="{{route('category.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="{{route('category.view',$data->id)}}" class="btn btn-primary">View</a>
-            </td>
+              
                 <td>
                     <img style="width: 50px;" src="{{url('/uploads/service/'.$data->image)}}" alt="">
                 </td>
-                
+
+                              <td>
+                <a href="{{route('service.edit',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('service.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                <a href="" class="btn btn-primary">View</a>
+            </td>
                 
             </tr>
             
             @endforeach  
         </tbody>
+        {{$service->links()}}
     </table>
     
 </body>

@@ -15,10 +15,30 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        // User::create([
+        //     'name'=>'Hima',
+        //     'role'=>'hima',
+
+        //     'email'=>'hima@gmail.com',
+        //     'password'=>bcrypt('123456')
+        // ]);
+
+
+        // User::create([
+        //     'name'=>'Beautician',
+        //     'role'=>'beautician',
+        //     'email'=>'beautician@gmail.com',
+        //     'password'=>bcrypt('123457')
+        // ]);
+
         User::create([
-            'name'=>'Hima',
-            'email'=>'hima@gmail.com',
-            'password'=>bcrypt('123456')
+           'name'=>'Doctor',
+           'role'=>'doctor',
+           'email'=>'doctor@gmail.com',
+          'password'=>bcrypt('123458')
         ]);
+
+
+
     }
 }

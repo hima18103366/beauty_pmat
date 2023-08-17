@@ -41,14 +41,15 @@
                 <td>{{$data->comments}}</td>
                 <td>{{$data->status}}</td>
                 <td>
-                <a href="{{route('category.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                <a href="{{route('category.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="{{route('category.view',$data->id)}}" class="btn btn-primary">View</a>
+                <a href="{{route('beautician.edit',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('beautician.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                
             </td>
             </tr>
             
             @endforeach  
         </tbody>
+        {{$beautician->links()}}
     </table>
     
 </body>

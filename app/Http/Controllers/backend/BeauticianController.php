@@ -45,4 +45,30 @@ class BeauticianController extends Controller
 
     }
 
+    public function Edit(int $beautician_id){
+        $beautician=Beautician::find($beautician_id);
+        return view('backend.page.beautician.edit',compact('beautician'));
+    }
+
+
+    public function update(Request $request ,$id){
+        $beauticianData = Beautician::find($id);
+        $beauticianData->update([
+
+            'customer_name'=>$request->name,
+            'date'=>$request->date,
+            'time'=>$request->time,
+            'age'=>$request->age,
+            'contact_num'=>$request->contact,
+           
+        ]);
+        return to_route('beautician.index')->with('success','beautician Updated Successfully');
+         
+    }
+
+    public function delete($id){
+        beautician::find($id)->delete();
+        return back()->with('success','beautician Deleted Successfully');
+    }
+
 }

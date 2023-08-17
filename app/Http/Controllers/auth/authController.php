@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\auth;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class authController extends Controller
 {
@@ -26,10 +28,24 @@ class authController extends Controller
          $credentials = $request->except('_token');
          $authentication=auth()->attempt($credentials);
          if ($authentication){
-            return to_route('dashboard');
+            // return to_route('dashboard');
+            return redirect()->route('dashboard');
+
+
          }
          else{
-            return to_route('login');
+            // return to_route('login');
+            return redirect()->back()->withErrors(['Invalid login information']);
+
+
+
          }
     }
+
+
+  public function logout(){
+    Auth::logout();
+    return to_route('login');
+  }
+    
 }

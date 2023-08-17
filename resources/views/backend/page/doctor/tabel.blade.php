@@ -18,28 +18,32 @@
       <th scope="col">Status</th>
 
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    </thead>
+        <tbody>
+        @foreach($doctor as $key=>$data)
+            <tr>
+                <th>{{$key+1}}</th>
+                <td>{{$data->name}}</td>
+                <td>{{$data->email}}</td>
+                <td>{{$data->contact}}</td>
+                <td>{{$data->date}}</td>
+                <td>{{$data->time}}</td>
+                <td>{{$data->status}}</td>
+                <td>
 
- <td>
-                <a href="{{route('category.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                <a href="{{route('category.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="{{route('category.view',$data->id)}}" class="btn btn-primary">View</a>
+
+                <a href="{{route('doctor.edit',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('doctor.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                
+                
             </td>
 
 
 
     </tr>
-   
-  </tbody>
+    @endforeach  
+        </tbody>
+        {{$doctor->links()}}
 </table>
     </body>
 </html>

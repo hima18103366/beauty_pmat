@@ -41,6 +41,27 @@ class CustomerController extends Controller
     }
 
 
+
+    public function customer_report(){
+        return view('backend.page.report.customer_report');
+    }
+
+    public function customer_report_search(Request $request){
+
+        $request->validate([
+            'from_date'=>'required|date',
+            'to_date'=>'required|date|after:from_date'
+        ]);
+
+        $from=$request->from_date;
+        $to=$request->to_date;
+
+        $customer=Customer::whereBetween('created_at', [$from , $to])->get();
+        return view('backend.page.report.customer_report',compact('customer'));
+
+    }
+
+
         public function edit($id)
         {
             $customer=Customer::find($id);

@@ -60,7 +60,7 @@
                                  <h1>DBPAT</h1>
                                  <h2>Digital Beauty Parlour And Treatment</h2>
                                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                                 <a href="#">Doctor Appointment </a> 
+                                 <a href="{{route('appointment.dform')}}">Doctor Appointment </a> 
                                  <a href="{{route('appointment.fform')}}">Beautician Appointment</a>
                               </div>
                            </div>

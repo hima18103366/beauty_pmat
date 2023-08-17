@@ -1,12 +1,12 @@
 @extends('master')
 @section('content')
-<html>
 
-<body>
 
-<form action="{{route('dappointment.store')}}" method="POST">
-  @csrf
-    <label for="name">Customer Name:</label>
+<form action="{{route('dappointment.update',$dappointment->id)}}" method="post">
+@csrf
+@method('PUT')
+   
+<label for="name">Customer Name:</label>
     <input class="form-control" type="text" id="name" name="name" required><br>
     <br>
     
@@ -39,11 +39,7 @@
     <br>
 
     <br>
-    <input class="btn btn-primary" type="submit" value="Submit">
-  </form>
-
-</body>
-
-</html>
-
+  <button class="btn btn-primary" type="submit">Update</button>
+</form>
 @endsection
+
