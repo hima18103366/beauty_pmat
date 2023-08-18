@@ -44,7 +44,7 @@ class AppointmentController extends Controller
 
         ]);
         $email=auth()->user()->email;
-        Mail::to($email)->send(new AppointmentMail());
+        Mail::to("$email")->send(new AppointmentMail());
 
         return redirect()->route('appointment.table');
 
@@ -76,7 +76,8 @@ class AppointmentController extends Controller
         ]);
 
         $email=auth()->user()->email;
-        Mail::to($email)->send(new AppointmentMail());
+       
+        Mail::to("$email")->send(new AppointmentMail());
         return to_route('homepage');
     
     }

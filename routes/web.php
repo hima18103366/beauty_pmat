@@ -45,7 +45,7 @@ Route::post('/hregister-submit',[HomepageController::class,'hregister_submit'])-
 
 
 
-Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware'=>'hauth'],function(){
     #Frontent appointment
     Route::get('/appointment-fform',[AppointmentController::class,'fform'])->name('appointment.fform');
     Route::post('/store_form',[AppointmentController::class,'store_form'])->name('store.form');
