@@ -43,6 +43,9 @@ class AppointmentController extends Controller
             'contact_num'=>$request->contact,
 
         ]);
+        $email=auth()->user()->email;
+        Mail::to($email)->send(new AppointmentMail());
+
         return redirect()->route('appointment.table');
 
     }
@@ -72,8 +75,8 @@ class AppointmentController extends Controller
             'contact_num'=>$request->contact,
         ]);
 
-        Mail::to('admin@gmail.com')->send(new AppointmentMail());
-
+        $email=auth()->user()->email;
+        Mail::to($email)->send(new AppointmentMail());
         return to_route('homepage');
     
     }

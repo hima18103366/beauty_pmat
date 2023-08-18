@@ -116,23 +116,20 @@ class DAppointmentController extends Controller
     }
 
 
-    public function prescription ()
+    public function prescription ($id)
     {
-        return view('backend.page.dappointment.prescription');
+        $appointment=DAppointment::find($id);
+        return view('backend.page.dappointment.prescription',compact('appointment'));
     }
-    public function pstore (Request $request)
+    public function pstore (Request $request,$id)
     {
         
-        DAppointment::create([ 
-
-            'patient_name'=>$request->name,
-            'patient_age'=>$request->age,
-            'diagnosis'=>$request->diagnosis,
-            'age'=>$request->age,
-            'medications'=>$request->medications,
+        DAppointment::find($id)->update([ 
+           
+            'link'=>$request->link,
 
         ]);
-        return redirect()->route('');
+        return redirect()->back();
 
     }
 

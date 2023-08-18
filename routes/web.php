@@ -45,14 +45,16 @@ Route::post('/hregister-submit',[HomepageController::class,'hregister_submit'])-
 
 
 
-#Frontent appointment
-Route::get('/appointment-fform',[AppointmentController::class,'fform'])->name('appointment.fform');
-Route::post('/store_form',[AppointmentController::class,'store_form'])->name('store.form');
-# dappointment
-Route::get('/dappointment-fform',[DAppointmentController::class,'dform'])->name('appointment.dform');
-Route::post('/store_dform',[DAppointmentController::class,'store_dform'])->name('store.dform');
+Route::group(['middleware'=>'auth'],function(){
+    #Frontent appointment
+    Route::get('/appointment-fform',[AppointmentController::class,'fform'])->name('appointment.fform');
+    Route::post('/store_form',[AppointmentController::class,'store_form'])->name('store.form');
+    # dappointment
+    Route::get('/dappointment-fform',[DAppointmentController::class,'dform'])->name('appointment.dform');
+    Route::post('/store_dform',[DAppointmentController::class,'store_dform'])->name('store.dform');
+    Route::get('/customer-logout',[HomepageController::class,'logout'])->name('customer.logout');
+});
 
-Route::get('/customer-logout',[HomepageController::class,'logout'])->name('customer.logout');
 
                        //register
 Route::get('/register',[authController::class,'register'])->name('register');
@@ -192,8 +194,8 @@ Route::post('/dappointment-store',[DAppointmentController::class,'store'])->name
 Route::get('/-edit/{dappointment_id}',[DAppointmentController::class,'Edit'])->name('dappointment.edit');
 Route::put('/dappointment-update/{id}',[DAppointmentController::class,'update'])->name('dappointment.update');
 Route::get('/dappointment-delete/{id}',[DAppointmentController::class,'delete'])->name('dappointment.delete');
-Route::get('/dappointment-prescription',[DAppointmentController::class,'prescription'])->name('dappointment.prescription');
-Route::get('/prescription-store',[DAppointmentController::class,'pstore'])->name('prescription.store');
+Route::get('/dappointment-prescription/{id}',[DAppointmentController::class,'prescription'])->name('dappointment.prescription');
+Route::post('/prescription-store/{id}',[DAppointmentController::class,'pstore'])->name('prescription.store');
 
 
 #report backent
