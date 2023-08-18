@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\CustomerUser;
 use App\Models\service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -27,12 +28,13 @@ class HomepageController extends Controller
   public function hregister_submit(Request $request){
 
     // dd($request->all());
-    CustomerUser::create([
+    User::create([
         'name'=>$request->name,
         'email'=>$request->email,
         'password'=>bcrypt($request->password),
+        'role'=>'customer'
     ]);
-    return to_route('hregister');
+    return redirect()->route('hlogin');
 }
 
   
@@ -40,18 +42,15 @@ class HomepageController extends Controller
     // dd($request->all());
     $credentials = $request->except('_token');
 //    dd($credentials);
-   if(auth()->guard('customer')->attempt($credentials)){
-
-      dd('login');
-    //    return redirect()->route('dashboard');
-
+   if(auth()->attempt($credentials)){
+    
+       return redirect()->back();
 
     }
     else{
-        dd('no login');
-
-       // return to_route('login');
-    //    return redirect()->back()->withErrors(['Invalid login information']);
+       
+       
+   return redirect()->back()->withErrors(['Invalid login information']);
 
 
 
