@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AppointmentMail;
 use App\Models\appointment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentController extends Controller
 {
@@ -64,10 +67,12 @@ class AppointmentController extends Controller
             'customer_name'=>$request->name,
             'service'=>$request->service,
             'date'=>$request->date,
-            'time'=>$request->time,
+            'time'=>Carbon::createFromFormat('H:i A', $request->time),
             'age'=>$request->age,
             'contact_num'=>$request->contact,
         ]);
+
+        Mail::to('admin@gmail.com')->send(new AppointmentMail());
 
         return to_route('homepage');
     
