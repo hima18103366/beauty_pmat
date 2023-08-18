@@ -39,10 +39,10 @@ Route::get('/',[HomepageController::class,'home'])->name('homepage');
 Route::get('/hlogin',[HomepageController::class,'hlogin'])->name('hlogin');
 Route::post('/hlogin-submit',[HomepageController::class,'hlogin_submit'])->name('hlogin.submit');
 
-
-
+//customer registration 
 Route::get('/hregister',[HomepageController::class,'hregister'])->name('hregister');
 Route::post('/hregister-submit',[HomepageController::class,'hregister_submit'])->name('hregister.submit');
+
 
 
 #Frontent appointment
@@ -53,9 +53,6 @@ Route::get('/dappointment-fform',[DAppointmentController::class,'dform'])->name(
 Route::post('/store_dform',[DAppointmentController::class,'store_dform'])->name('store.dform');
 
 Route::get('/customer-logout',[HomepageController::class,'logout'])->name('customer.logout');
-
-
-
 
                        //register
 Route::get('/register',[authController::class,'register'])->name('register');
