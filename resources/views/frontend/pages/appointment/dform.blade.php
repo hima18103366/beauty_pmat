@@ -53,7 +53,7 @@
 <form action="{{route('store.dform')}}" method="POST">
   @csrf
     <label for="name">Customer Name:</label>
-    <input class="form-control" type="text" id="name" name="name" required><br>
+    <input readonly value="{{auth()->user()->name}}" class="form-control" type="text" id="name" name="name" required><br>
     <br>
     
   

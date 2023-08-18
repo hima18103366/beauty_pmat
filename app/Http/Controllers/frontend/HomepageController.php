@@ -44,7 +44,7 @@ class HomepageController extends Controller
 //    dd($credentials);
    if(auth()->attempt($credentials)){
     
-       return redirect()->back();
+       return redirect()->route('homepage');
 
     }
     else{
