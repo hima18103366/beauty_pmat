@@ -20,6 +20,12 @@ class HomepageController extends Controller
     public function hlogin(){
         return view('frontend.pages.hlogin');
     }
+
+    public function logout(){
+        auth()->logout();
+
+        return redirect()->back();
+    }
     
     public function hregister(){
       return view('frontend.pages.hregister');
@@ -34,7 +40,8 @@ class HomepageController extends Controller
         'password'=>bcrypt($request->password),
         'role'=>'customer'
     ]);
-    return redirect()->route('hlogin');
+    return redirect()->route('hlogin')->with('success','Registretion Successfull');
+    
 }
 
   

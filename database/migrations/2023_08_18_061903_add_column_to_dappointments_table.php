@@ -16,7 +16,19 @@ return new class extends Migration
         Schema::table('dappointments', function (Blueprint $table) {
             $table->text('link')->nullable();
         });
+
+        Schema::table('dappointments', function (Blueprint $table) {
+            $table->text('patient_name')->nullable();
+            $table->text('patient_age')->nullable();
+            $table->text('medications')->nullable();
+            $table->text('notes')->nullable();
+        });
+        
     }
+
+
+
+    
 
     /**
      * Reverse the migrations.

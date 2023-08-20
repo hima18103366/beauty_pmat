@@ -197,6 +197,9 @@ Route::get('/dappointment-delete/{id}',[DAppointmentController::class,'delete'])
 Route::get('/dappointment-prescription/{id}',[DAppointmentController::class,'prescription'])->name('dappointment.prescription');
 Route::post('/prescription-store/{id}',[DAppointmentController::class,'pstore'])->name('prescription.store');
 
+Route::get('/doctor-prescription/{id}',[DAppointmentController::class,'dprescription'])->name('doctor.prescription');
+Route::post('/dprescription-store/{id}',[DAppointmentController::class,'dpstore'])->name('dprescription.store');
+
 
 #report backent
 Route::get('allreport',[ReportController::class,'all_report'])->name('all.report');

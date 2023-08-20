@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AppointmentLinkEmail;
+use App\Mail\AppointmentMail;
+use App\Mail\AppointmentPrescriptionEmail;
 use App\Models\dappointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DAppointmentController extends Controller
 {
@@ -66,7 +70,8 @@ class DAppointmentController extends Controller
             'age'=>$request->age,
             'contact_num'=>$request->contact,
         ]);
-
+        $email=auth()->user()->email;
+        Mail::to("$email")->send(new AppointmentMail());
         return to_route('homepage');
     }
 
@@ -124,13 +129,44 @@ class DAppointmentController extends Controller
     public function pstore (Request $request,$id)
     {
         
-        DAppointment::find($id)->update([ 
+        $link=DAppointment::find($id);
+        $link->update([ 
            
             'link'=>$request->link,
 
         ]);
+
+        
+        Mail::to('appointment@gmail.com')->send(new AppointmentLinkEmail($link->link));
+        return redirect()->back();
+
+    }
+
+
+    public function dprescription ($id)
+    {
+        $appointment=DAppointment::find($id);
+        return view('backend.page.dappointment.dprescription',compact('appointment'));
+    }
+    public function dpstore (Request $request,$id)
+    {
+        
+        $prescription=DAppointment::find($id);
+        $prescription->update([ 
+           
+            'patient_name'=>$request->patient_name,
+            'patient_age'=>$request->patient_age,
+            'medications'=>$request->medications,
+            'notes'=>$request->notes,
+
+        ]);
+
+        
+        Mail::to('appointment@gmail.com')->send(new AppointmentPrescriptionEmail($prescription));
         return redirect()->back();
 
     }
 
 }
+
+

@@ -36,6 +36,7 @@
                 <a href="{{route('dappointment.delete',$data->id)}}" class="btn btn-danger">Delete</a>
                 <a href="#" class="btn btn-primary">Token</a>
                 <a href="{{route('dappointment.prescription',$data->id)}}" class="btn btn-primary">Online Consultation</a>
+                <a href="{{route('doctor.prescription',$data->id)}}" class="btn btn-primary">Prescription </a>
                 
             </td>
             </tr>

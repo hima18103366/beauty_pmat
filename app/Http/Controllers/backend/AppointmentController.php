@@ -76,7 +76,7 @@ class AppointmentController extends Controller
         ]);
 
         $email=auth()->user()->email;
-        dd($email);
+        // dd($email);
         Mail::to($email)->send(new AppointmentMail());
         return to_route('homepage');
     
