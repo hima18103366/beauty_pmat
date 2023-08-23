@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -34,7 +35,10 @@ class PaymentController extends Controller
             'amount'=>$request->amount,
 
         ]);
-        return redirect()->route('payment.table');
+        Toastr::success('message', 'payment', ['successfully submit']);
+
+
+        return redirect()->back();
 
     }
 

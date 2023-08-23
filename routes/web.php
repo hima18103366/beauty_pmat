@@ -17,6 +17,7 @@ use App\Http\Controllers\frontend\HomepageController;
 use App\Http\Controllers\backend\BeauticianController;
 use App\Http\Controllers\backend\AppointmentController;
 use App\Http\Controllers\backend\DAppointmentController;
+use App\Http\Controllers\SslCommerzPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,10 @@ Route::get('/hregister',[HomepageController::class,'hregister'])->name('hregiste
 Route::post('/hregister-submit',[HomepageController::class,'hregister_submit'])->name('hregister.submit');
 
 
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
 
 Route::group(['middleware'=>'auth'],function(){
     #Frontent appointment
@@ -53,6 +58,18 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/dappointment-fform',[DAppointmentController::class,'dform'])->name('appointment.dform');
     Route::post('/store_dform',[DAppointmentController::class,'store_dform'])->name('store.dform');
     Route::get('/customer-logout',[HomepageController::class,'logout'])->name('customer.logout');
+
+
+    //payment
+
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+
 });
 
 

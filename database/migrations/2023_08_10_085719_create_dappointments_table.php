@@ -20,7 +20,12 @@ return new class extends Migration
             $table->text('time');
             $table->string('age');
             $table->string('contact_num');
+            $table->string('payment_status');
+            $table->string('transaction_id')->nullable();
+            $table->string('amount');
             $table->timestamps();
+
+
         });
     }
 

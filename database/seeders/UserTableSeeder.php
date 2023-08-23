@@ -24,19 +24,19 @@ class UserTableSeeder extends Seeder
         // ]);
 
 
-        // User::create([
-        //     'name'=>'Beautician',
-        //     'role'=>'beautician',
-        //     'email'=>'beautician@gmail.com',
-        //     'password'=>bcrypt('123457')
-        // ]);
-
         User::create([
-           'name'=>'Doctor',
-           'role'=>'doctor',
-           'email'=>'doctor@gmail.com',
-          'password'=>bcrypt('123458')
+            'name'=>'Beautician',
+            'role'=>'beautician',
+            'email'=>'beautician@gmail.com',
+            'password'=>bcrypt('123457')
         ]);
+
+        // User::create([
+        //    'name'=>'Doctor',
+        //    'role'=>'doctor',
+        //    'email'=>'doctor@gmail.com',
+        //   'password'=>bcrypt('123458')
+        // ]);
 
 
 

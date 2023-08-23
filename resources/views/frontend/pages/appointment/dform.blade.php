@@ -87,8 +87,13 @@
     <input class="form-control" type="tel" id="phone" name="contact" required><br>
     <br>
 
+      
+    <label for="phone">Amount:</label>
+    <input class="form-control" type="tel" id="phone" name="contact" readonly value="1000"><br>
     <br>
-    <input class="btn btn-primary" type="submit" value="Submit">
+
+    <br>
+    <input class="btn btn-primary" type="submit" value="Submit & Pay">
   </form>
 
 </body>

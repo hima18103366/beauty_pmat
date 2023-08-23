@@ -37,6 +37,7 @@
     <label for="phone">Contact Number:</label>
     <input class="form-control" type="tel" id="phone" name="contact" required><br>
     <br>
+    
 
     <br>
     <input class="btn btn-primary" type="submit" value="Submit">

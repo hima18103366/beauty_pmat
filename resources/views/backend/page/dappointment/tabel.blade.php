@@ -17,6 +17,9 @@
                 <th scope="col">Time</th>
                 <th scope="col">Age</th>
                 <th scope="col">Contact Number</th> 
+                <th scope="col"> Payment Status</th>
+                <th scope="col">Transaction Id</th>
+                <th scope="col">Amount</th> 
 
                 
                 
@@ -31,6 +34,9 @@
                 <td>{{$data->time}}</td>
                 <td>{{$data->age}}</td>
                 <td>{{$data->contact_num}}</td>
+                <td>{{$data->payment_status}}</td>
+                <td>{{$data->transaction_id}}</td>
+                <td>{{$data->amount}}</td>
                 <td>
                 <a href="{{route('dappointment.edit',$data->id)}}" class="btn btn-success">Edit</a>
                 <a href="{{route('dappointment.delete',$data->id)}}" class="btn btn-danger">Delete</a>
