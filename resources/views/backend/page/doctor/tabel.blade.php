@@ -32,14 +32,14 @@
                 <td>
 
                 <a href="" class="btn btn-danger">Delete</a>
-                
-                
+
+
             </td>
 
 
 
     </tr>
-    @endforeach  
+    @endforeach
         </tbody>
         {{$doctor->links()}}
 </table>

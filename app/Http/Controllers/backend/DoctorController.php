@@ -11,7 +11,10 @@ use Illuminate\Http\Request;
 class DoctorController extends Controller
 {
     public function table (){
-        $doctor=User::where('role','doctor')->paginate(5);
+        //$doctor=User::where('role','doctor')->paginate(5);
+
+        $doctor = Doctor::paginate(5);
+
         return view('backend.page.doctor.tabel',compact('doctor'));
     }
     public function form (){
@@ -45,5 +48,5 @@ class DoctorController extends Controller
         ]);
         return redirect()->route('doctor.table');
     }
- 
+
 }
