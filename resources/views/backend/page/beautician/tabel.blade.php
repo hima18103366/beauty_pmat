@@ -2,12 +2,12 @@
 @section('content')
 
 
-<html> 
+<html>
     <body>
         <h1>Beautician Table</h1>
 
         <a class="btn btn-primary" href="{{route('beautician.form')}}">create</a>
-        
+
         <table class="table">
         <thead>
             <tr>
@@ -21,7 +21,7 @@
                 <th scope="col">Time</th>
                 <th scope="col">Comments</th>
                 <th scope="col">Status</th>
-                
+
 
 
 
@@ -41,17 +41,17 @@
                 <td>{{$data->comments}}</td>
                 <td>{{$data->status}}</td>
                 <td>
-                <a href="{{route('beautician.edit',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('beauty.edit',$data->id)}}" class="btn btn-success">Edit</a>
                 <a href="{{route('beautician.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                
+
             </td>
             </tr>
-            
-            @endforeach  
+
+            @endforeach
         </tbody>
         {{$beautician->links()}}
     </table>
-    
+
 </body>
 </html>
 @endsection

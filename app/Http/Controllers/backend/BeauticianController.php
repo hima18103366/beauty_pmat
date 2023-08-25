@@ -21,7 +21,7 @@ class BeauticianController extends Controller
 
     public function store (Request $request)
     {
-         
+
         $request->validate([
             'name'=>'required',
             'email'=>'required|email',
@@ -45,25 +45,31 @@ class BeauticianController extends Controller
 
     }
 
-    public function Edit(int $beautician_id){
-        $beautician=Beautician::find($beautician_id);
-        return view('backend.page.beautician.edit',compact('beautician'));
+    public function edit($id){
+        $beautician=Beautician::find($id);
+        $categories = category::all();
+        return view('backend.page.beautician.edited',compact('beautician','categories'));
     }
 
 
     public function update(Request $request ,$id){
+
+        //dd($request->all());
         $beauticianData = Beautician::find($id);
         $beauticianData->update([
 
-            'customer_name'=>$request->name,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'category_id'=>$request->category_id,
+            'contact'=>$request->contact,
+            'service'=>$request->service,
             'date'=>$request->date,
             'time'=>$request->time,
-            'age'=>$request->age,
-            'contact_num'=>$request->contact,
-           
+            'comments'=>$request->comments,
+
         ]);
-        return to_route('beautician.index')->with('success','beautician Updated Successfully');
-         
+        return to_route('beautician.table')->with('success','beautician Updated Successfully');
+
     }
 
     public function delete($id){
