@@ -158,7 +158,9 @@ Route::get('/customer/view/{id}',[CustomerController::class,'view'])->name('cust
 Route::get('beautician/table',[BeauticianController::class,'table'])->name('beautician.table');
 Route::get('/beautician-form',[BeauticianController::class,'form'])->name('beautician.form');
 Route::post('/beautician-store',[BeauticianController::class,'store'])->name('beautician.store');
-Route::get('/-edit/{beautician_id}',[BeauticianController::class,'Edit'])->name('beautician.edit');
+// Route::get('/-edit/{beautician_id}',[BeauticianController::class,'Edit'])->name('beautician.edit');
+
+Route::get('/beauty-edit/{id}',[BeauticianController::class,'edit'])->name('beauty.edit');
 Route::put('/beautician-update/{id}',[BeauticianController::class,'update'])->name('beautician.update');
 Route::get('/beautician-delete/{id}',[BeauticianController::class,'delete'])->name('beautician.delete');
 
