@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -40,7 +40,7 @@ Route::get('/',[HomepageController::class,'home'])->name('homepage');
 Route::get('/hlogin',[HomepageController::class,'hlogin'])->name('hlogin');
 Route::post('/hlogin-submit',[HomepageController::class,'hlogin_submit'])->name('hlogin.submit');
 
-//customer registration 
+//customer registration
 Route::get('/hregister',[HomepageController::class,'hregister'])->name('hregister');
 Route::post('/hregister-submit',[HomepageController::class,'hregister_submit'])->name('hregister.submit');
 
@@ -125,7 +125,7 @@ Route::get('/brand/view/{id}',[BrandController::class,'view'])->name('brand.view
 
 
 
-/* 
+/*
 
 #produets backend
 Route::get('/produets-index',[ProduetsController::class,'index'])->name('produets.index');
@@ -140,7 +140,7 @@ Route::get('/customer-table',[CustomerController::class,'table'])->name('custome
 Route::get('/customer-form',[CustomerController::class,'form'])->name('customer.form');
 Route::post('/customer-store',[CustomerController::class,'store'])->name('customer.store');
 Route::get('/customer-edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
-Route::put('/customer-update/{id}',[CustomerController::class,'update'])->name('customer.update');
+Route::post('/customer-update/{id}',[CustomerController::class,'update'])->name('customer.update');
 Route::get('/customer-delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
 Route::get('/customer/view/{id}',[CustomerController::class,'view'])->name('customer.view');
 

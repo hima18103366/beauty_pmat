@@ -15,30 +15,40 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        // User::create([
-        //     'name'=>'Hima',
-        //     'role'=>'hima',
+        // Clear existing data if needed
+        User::truncate();
 
-        //     'email'=>'hima@gmail.com',
-        //     'password'=>bcrypt('123456')
-        // ]);
+        // Create or update records
+        User::firstOrCreate(
+            ['email' => 'hima@gmail.com'],
+            [
+                'name' => 'Hima',
+                'role' => 'admin',
+                'password' => bcrypt('123456')
+            ]
+        );
 
+        User::firstOrCreate(
+            ['email' => 'beautician@gmail.com'],
+            [
+                'name' => 'Beautician',
+                'role' => 'beautician',
+                'password' => bcrypt('123457')
+            ]
+        );
 
-        User::create([
-            'name'=>'Beautician',
-            'role'=>'beautician',
-            'email'=>'beautician@gmail.com',
-            'password'=>bcrypt('123457')
-        ]);
-
-        // User::create([
-        //    'name'=>'Doctor',
-        //    'role'=>'doctor',
-        //    'email'=>'doctor@gmail.com',
-        //   'password'=>bcrypt('123458')
-        // ]);
-
+        User::firstOrCreate(
+            ['email' => 'doctor@gmail.com'],
+            [
+                'name' => 'Doctor',
+                'role' => 'doctor',
+                'password' => bcrypt('123458')
+            ]
+        );
 
 
     }
+
+
+
 }

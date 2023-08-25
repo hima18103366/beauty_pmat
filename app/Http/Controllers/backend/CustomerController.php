@@ -67,32 +67,11 @@ class CustomerController extends Controller
             $customer=Customer::find($id);
         return view('backend.page.customer.edit',compact('customer'));
         }
-    
-        // public function update(Request $request ,$id){
-        //     $customerData = Customer::find($id);
-        //     $customerData->update([
-        //         'name'=>$request->name,
-        //         'email'=>$request->email,
-            
-        //         'details'=>$request->details
-        //     ]);
-        //     return to_route('brand.index')->with('success','brand Updated Successfully');
-             
-        // }
-    
-        // public function delete($id){
-        //     brand::find($id)->delete();
-        //     return back()->with('success','brand Deleted Successfully');
-        // }
-    
-    
-        // public function view($id){
-        //     $brand=Brand::find($id);
-        //     return view('backend.page.brand.view',compact('brand'));
-        // }
-    
-        
+
+       
+
+
 
     }
-    
+
 
