@@ -18,7 +18,7 @@
         <ul>
           <li><strong>Date:</strong> {{now()}}</li>
           <li><strong>Location:</strong> Uttara, Dhaka</li>
-         
+
           <li><strong>Provider:</strong> Digital Beauty Parlour And Treatment</li>
         </ul>
         <p>If you need to reschedule or cancel the appointment, please log in to your account or contact our support team.</p>

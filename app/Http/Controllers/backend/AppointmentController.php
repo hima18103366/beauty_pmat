@@ -22,7 +22,7 @@ class AppointmentController extends Controller
 
     public function store (Request $request)
     {
-         
+
         $request->validate([
             'name'=>'required',
             'service'=>'required',
@@ -33,7 +33,7 @@ class AppointmentController extends Controller
         ]);
 
         // dd($request->all());
-        Appointment::create([ 
+        Appointment::create([
 
             'customer_name'=>$request->name,
             'service'=>$request->service,
@@ -58,7 +58,7 @@ class AppointmentController extends Controller
     public function store_form(Request $request){
 
         $today = Carbon::today()->toDateString();
-        
+
         if($request->date < $today)
         {
             return redirect()->back()->with('error', 'appointment date should be start from today');
@@ -87,7 +87,7 @@ class AppointmentController extends Controller
         // dd($email);
         Mail::to($email)->send(new AppointmentMail());
         return to_route('homepage');
-    
+
     }
 
     public function appointment_report(){
@@ -126,10 +126,10 @@ class AppointmentController extends Controller
             'time'=>$request->time,
             'age'=>$request->age,
             'contact_num'=>$request->contact,
-           
+
         ]);
         return to_route('appointment.index')->with('success','appointment Updated Successfully');
-         
+
     }
 
     public function delete($id){
