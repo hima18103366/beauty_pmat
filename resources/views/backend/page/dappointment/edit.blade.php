@@ -7,12 +7,12 @@
 @method('PUT')
    
 <label for="name">Customer Name:</label>
-    <input class="form-control" type="text" id="name" name="name" required><br>
+    <input class="form-control" type="text" id="name" name="name" value="{{$dappointment->name}}" required><br>
     <br>
     
   
     <label for="date">Date:</label>
-    <input class="form-control" type="date" id="date" name="date" required><br>
+    <input class="form-control" type="date" id="date" name="date" value="$dappointment->date" required><br>
     <br>
     
     <label for="time">Time:</label>
@@ -31,11 +31,11 @@
       </select><br>
 
     <label for="age">age:</label>
-    <input class="form-control" type="tel" id="age" name="age" required><br>
+    <input class="form-control" type="tel" id="age" name="age" value="$dappointment->age" required><br>
     <br>
     
     <label for="phone">Contact Number:</label>
-    <input class="form-control" type="tel" id="phone" name="contact" required><br>
+    <input class="form-control" type="tel" id="phone" name="contact" value="$dappointment->contact" required><br>
     <br>
 
     <br>

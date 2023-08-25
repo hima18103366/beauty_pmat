@@ -54,7 +54,15 @@ class AppointmentController extends Controller
     {
         return view('frontend.pages.appointment.fform');
     }
+
     public function store_form(Request $request){
+
+        $today = Carbon::today()->toDateString();
+        
+        if($request->date < $today)
+        {
+            return redirect()->back()->with('error', 'appointment date should be start from today');
+        }
         // dd($request->all());
         $request->validate([
             'name'=>'required',

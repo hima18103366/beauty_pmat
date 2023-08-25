@@ -7,7 +7,7 @@
 @method('PUT')
    
 <label for="name">Customer Name:</label>
-    <input class="form-control" type="text" id="name" name="name" required><br>
+    <input class="form-control" type="text" id="name" name="name" value="{{$appointment->name}}" required><br>
     <br>
     <label for="service">Service:</label>
     <select class="form-control" id="service" name="service" required>
@@ -21,7 +21,7 @@
      <br>
   
     <label for="date">Date:</label>
-    <input class="form-control" type="date" id="date" name="date" required><br>
+    <input class="form-control" type="date" id="date" name="date" value="{{$appointment->date}}" required><br>
     <br>
     
     <label for="time">Time:</label>
@@ -41,11 +41,11 @@
       <option value="07:00 PM">07:00 PM</option>
       <option value="08:00 PM">08:00 PM</option>
     <label for="age">age:</label>
-    <input class="form-control" type="tel" id="age" name="age" required><br>
+    <input class="form-control" type="tel" id="age" name="age" value="{{$appointment->age}}" required><br>
     <br>
     
     <label for="phone">Contact Number:</label>
-    <input class="form-control" type="tel" id="phone" name="contact" required><br>
+    <input class="form-control" type="tel" id="phone" name="contact" value="{{$appointment->control}}" required><br>
     <br>
   
   <button class="btn btn-primary" type="submit">Update</button>

@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
     public function table () {
-        $service=Service::paginate(5);
-        return view('backend.page.service.tabel',compact('service'));
+        $services=Service::paginate(5);
+        return view('backend.page.service.tabel',compact('services'));
     }
     public function form ()
     {
@@ -36,7 +36,7 @@ class ServiceController extends Controller
 
         }
 
-        // dd($request->all());
+        // dd($fileName);
         Service::create([ 
 
             'service'=>$request->service,

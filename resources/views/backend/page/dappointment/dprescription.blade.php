@@ -14,7 +14,7 @@
         <input class="form-control" value="{{$appointment->age}}" type="number" id="patient_age" name="patient_age" required><br><br>
 
         <label for="medications">Medications:</label>
-        <textarea class="form-control" value="{{$appointment->medications}}" type="text" id="medications" name="medication" rows="4"  required></textarea><br><br>
+        <textarea class="form-control" value="{{$appointment->medications}}" type="text" id="medications" name="medications" rows="4"  required></textarea><br><br>
 
         <label for="medications">Notes:</label>
         <input class="form-control" value="{{$appointment->notes}}" type="text" id="notes" name="notes" required><br><br>

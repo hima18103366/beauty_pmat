@@ -22,9 +22,7 @@
                         <li class="nav-item">
                            <a class="nav-link" href="#customer">Customer</a>
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#contact">Contact Us</a>
-                        </li>
+                        
                         @guest
                         <li class="nav-item">
                            <a class="nav-link" href="{{route('hlogin')}}">Log in</a>

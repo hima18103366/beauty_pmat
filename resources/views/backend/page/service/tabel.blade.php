@@ -16,12 +16,13 @@
                 <th scope="col">Description</th>
                 <th scope="col">Price</th>
                 <th scope="col">Image</th>
+                <th>Action</th>
                 
 
             </tr>
         </thead>
         <tbody>
-        @foreach($service as $key=>$data)
+        @foreach($services as $key=>$data)
             <tr>
             <th>{{$key+1}}</th>
                 <td>{{$data->service}}</td>
@@ -31,23 +32,22 @@
 
               
                 <td>
-                    <img style="width: 50px;" src="{{url('/uploads/service/'.$data->image)}}" alt="">
+                    <img style="width: 50px;" src="{{ asset('uploads/service/'.$data->image) }}" alt="image">
                 </td>
 
                               <td>
                 <a href="{{route('service.edit',$data->id)}}" class="btn btn-success">Edit</a>
                 <a href="{{route('service.delete',$data->id)}}" class="btn btn-danger">Delete</a>
-                <a href="" class="btn btn-primary">View</a>
+               
             </td>
                 
             </tr>
             
             @endforeach  
         </tbody>
-        {{$service->links()}}
+        {{$services->links()}}
     </table>
     
 </body>
 </html>
 @endsection
-

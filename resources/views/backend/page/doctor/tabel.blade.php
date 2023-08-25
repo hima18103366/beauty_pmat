@@ -31,9 +31,7 @@
                 <td>{{$data->status}}</td>
                 <td>
 
-
-                <a href="{{route('doctor.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                <a href="{{route('doctor.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                <a href="" class="btn btn-danger">Delete</a>
                 
                 
             </td>

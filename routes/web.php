@@ -173,6 +173,7 @@ Route::post('/doctor-store',[DoctorController::class,'store'])->name('doctor.sto
 
 
 
+
 #Pyament backend
 Route::get('payment/table',[PaymentController::class,'table'])->name('payment.table');
 Route::get('/payment-form',[PaymentController::class,'form'])->name('payment.form');
@@ -186,10 +187,9 @@ Route::post('/pyament-store',[PaymentController::class,'store'])->name('payment.
 Route::get('service/table',[ServiceController::class,'table'])->name('service.table');
 Route::get('/service-form',[ServiceController::class,'form'])->name('service.form');
 Route::post('/service-store',[ServiceController::class,'store'])->name('service.store');
-Route::get('/-edit/{service_id}',[ServiceController::class,'Edit'])->name('service.edit');
+Route::get('/service-edit/{service_id}',[ServiceController::class,'Edit'])->name('service.edit');
 Route::put('/service-update/{id}',[ServiceController::class,'update'])->name('service.update');
 Route::get('/service-delete/{id}',[ServiceController::class,'delete'])->name('service.delete');
-
 
 
 

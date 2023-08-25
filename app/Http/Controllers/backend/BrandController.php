@@ -65,8 +65,7 @@ class BrandController extends Controller
 
     public function delete($id){
         brand::find($id)->delete();
-        return back()->with('success','brand Deleted Successfully');
-    }
+        return back()->with('success','brand Deleted Successfully');   }
 
 
     public function view($id){

@@ -5,24 +5,24 @@
 <body>
    
 
-<form action="" method="POST">
+<form action="{{route('customer.update',$customer->id)}}" method="POST">
   @csrf
-  <!-- @method="put" -->
+  @method='put'
     <label for="name">Name:</label>
-    <input class="form-control" type="text" id="name" name="name" value="" required><br>
+    <input class="form-control" type="text" id="name" name="name" value="{{$customer->name}}" required><br>
     <br>
 
     <label for="phone">Phone Num :</label>
-    <input class="form-control" type="tel" id="Phone Num" name="phone" required><br>
+    <input class="form-control" type="tel" id="Phone num" name="phone" value="{{$customer->phpne_num}}" required><br>
     <br>
     
     <label for="email">Email:</label>
-    <input class="form-control" type="email" id="email" name="email" required><br>
+    <input class="form-control" type="email" id="email" name="email" value="{{$customer->email}}" required><br>
     <br>
     
     
     <label for="date">Last Visit:</label>
-    <input class="form-control" type="date" id="date" name="LastVisit" required><br>
+    <input class="form-control" type="date" id="date" name="LastVisit" value="{{$customer->date}}" required><br>
     <br>
     
     

@@ -14,22 +14,6 @@
 
 
 
-                    
-                    <a href="{{route('brand.index')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Brand</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     
                    

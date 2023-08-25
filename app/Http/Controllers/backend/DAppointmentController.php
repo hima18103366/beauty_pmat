@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use App\Library\SslCommerz\SslCommerzNotification;
-use App\Mail\AppointmentLinkEmail;
-use App\Mail\AppointmentMail;
-use App\Mail\AppointmentPrescriptionEmail;
+use Carbon\Carbon;
 use App\Models\dappointment;
 use Illuminate\Http\Request;
+use App\Mail\AppointmentMail;
+use App\Mail\AppointmentLinkEmail;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\AppointmentPrescriptionEmail;
+use App\Library\SslCommerz\SslCommerzNotification;
 
 class DAppointmentController extends Controller
 {
@@ -24,7 +25,6 @@ class DAppointmentController extends Controller
 
     public function store (Request $request)
     {
-         
         $request->validate([
             'name' => 'required|string',
             'date' => 'required|date',
@@ -54,10 +54,24 @@ class DAppointmentController extends Controller
 
     public function dform ()
     {
+
         return view('frontend.pages.appointment.dform');
     }
-    public function store_dform(Request $request){
-        // dd($request->all());
+    public function store_dform(Request $request)
+    {
+        $today = Carbon::today()->toDateString();
+        
+        if($request->date < $today)
+        {
+            return redirect()->back()->with('error', 'appointment date should be start from today');
+        }
+        $appointment = dappointment::where('date', $request->date)->where('time', $request->time)->first();
+
+        if(isset($appointment))
+        {
+            return redirect()->back()->with('error', 'same date same time appoinyment can not be taklen');
+        }
+        // dd($appointment);
         $request->validate([
             'name'=>'required',
             'date'=>'required',
@@ -79,7 +93,7 @@ class DAppointmentController extends Controller
         ]);
 
         $email=auth()->user()->email;
-        Mail::to("$email")->send(new AppointmentMail());
+        Mail::to($email)->send(new AppointmentMail($appointment));
 
         // if($request->payment_method=='ssl')
         // {

@@ -7,15 +7,15 @@
 @method('PUT')
    
 <label for="name">Name:</label>
-    <input class="form-control" type="text" id="name" name="name" required><br>
+    <input class="form-control" type="text" id="name" name="name" value="{{$beautician->name}}" required><br>
     <br>
     
     <label for="email">Email:</label>
-    <input class="form-control" type="email" id="email" name="email" required><br>
+    <input class="form-control" type="email" id="email" name="email" value="{{$beautician->email}}" required><br>
     <br>
     
     <label for="phone">Phone:</label>
-    <input class="form-control" type="tel" id="phone" name="contact" required><br>
+    <input class="form-control" type="tel" id="phone" name="contact" value="{{$beautician->contact}}" required><br>
     <br>
     
     <label for="service">Service:</label>
@@ -29,15 +29,15 @@
      <br>
     
     <label for="date">Date:</label>
-    <input class="form-control" type="date" id="date" name="date" required><br>
+    <input class="form-control" type="date" id="date" name="date" value="{{$beautician->date}}" required><br>
     <br>
     
     <label for="time">Time:</label>
-    <input class="form-control" type="time" id="time" name="time" required><br>
+    <input class="form-control" type="time" id="time" name="time" value="{{$beautician->time}}" required><br>
     <br>
     
     <label for="comments">Comments:</label>
-    <textarea class="form-control"  id="comments" name="comments"></textarea><br>
+    <textarea class="form-control"  id="comments" name="comments" value="{{$beautician->comments}}" required ></textarea><br>
     <br>
 
     <div class="form-group">
@@ -53,7 +53,7 @@
         </div>
     
     <label for="service">Status:</label>
-    <select class="form-control" id="service" name="service" required> 
+    <select class="form-control" id="service" name="service"  required> 
       <option value="active">Active</option>
       <option value="inactive">Inactive</option>
     </select>

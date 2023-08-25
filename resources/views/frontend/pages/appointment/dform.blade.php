@@ -49,7 +49,9 @@
   </style>
 
 <body>
-
+@if(Session::has('error'))
+    <div class="alert alert-danger">{{ Session::get('error') }}</div>
+@endif
 <form action="{{route('store.dform')}}" method="POST">
   @csrf
     <label for="name">Customer Name:</label>
