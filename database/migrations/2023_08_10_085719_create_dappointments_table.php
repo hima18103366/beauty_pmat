@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('customer_name');
             $table->date('date');
-            $table->text('time');
+            $table->time('time');
             $table->string('age');
             $table->string('contact_num');
             $table->string('payment_status');
