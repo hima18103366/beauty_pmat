@@ -94,13 +94,13 @@
                             <div class="row gutters">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                     <a href="index.html" class="invoice-logo">
-                                        Bootdey.com
+                                        DBPAT.com
                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <address class="text-right">
-                                       {{ auth()->user()->name }}<br>
-                                        Sunrise Blvd, San Francisco.<br>
+                                       {{ $invoice->customer_name }}<br>
+<br>
                                         Date:{{ $invoice->date }}
                                     </address>
                                 </div>
@@ -112,11 +112,13 @@
                                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                                     <div class="invoice-details">
                                         <address>
-                                            {{ auth()->user()->name }}<br>
+                                            {{ $invoice->customer_name }}<br>
                                             <!-- Add more dynamic data here -->
                                         </address>
                                     </div>
                                 </div>
+
+
                                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                                     <div class="invoice-details">
                                         <div class="invoice-num">
@@ -125,6 +127,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
                             <!-- Row end -->
                         </div>
@@ -137,9 +141,12 @@
                                         <table class="table custom-table m-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Items</th>
-                                                    <th>Description</th>
+                                                    <th>Time</th>
+                                                    <th>Age</th>
+                                                    <th>Contact</th>
+                                                    <th>Status</th>
 
+                                                    <th>Tranaction</th>
                                                     <th>Sub Total</th>
                                                 </tr>
                                             </thead>
@@ -147,11 +154,16 @@
                                                 <!-- Add dynamic table rows here -->
                                                 <tr>
                                                     <td>
-                                                        <!-- Add dynamic item data here -->
+                                                       {{ $invoice->time  }} AM
                                                     </td>
-                                                    <td>{{ $invoice->description }}</td>
+                                                    <td>{{ $invoice->age }}</td>
 
-                                                    <td>{{ $invoice->amount }}</td>
+
+                                                    <td>{{ $invoice->contact_num }}</td>
+                                                    <td>{{ $invoice->payment_status }}</td>
+
+                                                    <td>TRN-{{ $invoice->age }}{{ $invoice->date }}</td>
+                                                    <td>{{ $invoice->amount }} Tk.</td>
                                                 </tr>
                                             </tbody>
                                         </table>

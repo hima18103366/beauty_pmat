@@ -32,7 +32,7 @@
                 <a href="{{route('category.delete',$data->id)}}" class="btn btn-danger">Delete</a>
                 <a href="{{route('category.view',$data->id)}}" class="btn btn-primary">View</a>
 
-                <a href="{{route('payment.invoice',$data->id)}}" class="btn btn-primary">Invoice</a>
+                
 
             </td>
             </tr>

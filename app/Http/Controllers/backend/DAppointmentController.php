@@ -33,10 +33,10 @@ class DAppointmentController extends Controller
             'contact' => 'required|numeric',
         ]);
 
-        
+
 
         // dd($request->all());
-        DAppointment::create([ 
+        DAppointment::create([
 
             'customer_name'=>$request->name,
             'date'=>$request->date,
@@ -45,7 +45,7 @@ class DAppointmentController extends Controller
             'contact_num'=>$request->contact,
 
         ]);
-        
+
         return redirect()->back();
 
     }
@@ -59,8 +59,10 @@ class DAppointmentController extends Controller
     }
     public function store_dform(Request $request)
     {
+
+        //dd($request->all());
         $today = Carbon::today()->toDateString();
-        
+
         if($request->date < $today)
         {
             return redirect()->back()->with('error', 'appointment date should be start from today');
@@ -71,22 +73,24 @@ class DAppointmentController extends Controller
         {
             return redirect()->back()->with('error', 'same date same time appoinyment can not be taklen');
         }
+
+
         // dd($appointment);
         $request->validate([
             'name'=>'required',
             'date'=>'required',
             'time'=>'required',
             'age'=>'required',
-            'contact'=>'required',
+            'contact_num'=>'required',
         ]);
-        //  dd($request->all());
+         // dd($request->all());
 
         $appointment=dappointment::create([
             'customer_name'=>$request->name,
             'date'=>$request->date,
             'time'=>$request->time,
             'age'=>$request->age,
-            'contact_num'=>$request->contact,
+            'contact_num'=>$request->contact_num,
             'payment_status'=>'pending',
             'transaction_id'=>1,
             'amount'=>1000
@@ -139,10 +143,10 @@ class DAppointmentController extends Controller
             'time'=>$request->time,
             'age'=>$request->age,
             'contact_num'=>$request->contact,
-           
+
         ]);
         return to_route('dappointment.index')->with('success','dappointment Updated Successfully');
-         
+
     }
 
     public function delete($id){
@@ -158,15 +162,15 @@ class DAppointmentController extends Controller
     }
     public function pstore (Request $request,$id)
     {
-        
+
         $link=DAppointment::find($id);
-        $link->update([ 
-           
+        $link->update([
+
             'link'=>$request->link,
 
         ]);
 
-        
+
         Mail::to('appointment@gmail.com')->send(new AppointmentLinkEmail($link->link));
         return redirect()->back();
 
@@ -180,19 +184,19 @@ class DAppointmentController extends Controller
     }
     public function dpstore (Request $request,$id)
     {
-        
+
         $prescription=DAppointment::find($id);
-        $prescription->update([ 
-           
+        $prescription->update([
+
             'patient_name'=>$request->patient_name,
             'patient_age'=>$request->patient_age,
             'medications'=>$request->medications,
             'notes'=>$request->notes,
-          
+
 
         ]);
 
-        
+
         Mail::to('appointment@gmail.com')->send(new AppointmentPrescriptionEmail($prescription));
         return redirect()->back();
 

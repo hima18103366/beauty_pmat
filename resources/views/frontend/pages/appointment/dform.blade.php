@@ -86,12 +86,12 @@
     <br>
 
     <label for="phone">Contact Number:</label>
-    <input class="form-control" type="tel" id="phone" name="contact" required><br>
+    <input class="form-control" type="tel" id="phone" name="amount" required><br>
     <br>
 
 
     <label for="phone">Amount:</label>
-    <input class="form-control" type="tel" id="phone" name="contact" readonly value="1000"><br>
+    <input class="form-control" type="tel" id="phone" name="contact_num"><br>
     <br>
 
     <br>
