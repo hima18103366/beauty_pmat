@@ -20,7 +20,7 @@ class PaymentController extends Controller
 
     public function store (Request $request)
     {
-         
+
         $request->validate([
             'date'=>'required',
             'description'=>'required',
@@ -61,7 +61,15 @@ class PaymentController extends Controller
 
     }
 
+public function invoice($id){
+    $invoice = Payment::find($id);
 
+    if (!$invoice) {
+        return redirect()->route('payment.index')->with('error', 'Invoice not found');
+    }
+
+    return view('backend.page.payment.invoice', compact('invoice'));
+}
 
 
 }
