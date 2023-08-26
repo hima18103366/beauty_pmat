@@ -178,6 +178,7 @@ Route::post('/doctor-store',[DoctorController::class,'store'])->name('doctor.sto
 
 #Pyament backend
 Route::get('payment/table',[PaymentController::class,'table'])->name('payment.table');
+Route::get('payment/invoice/{id}',[PaymentController::class,'invoice'])->name('payment.invoice');
 Route::get('/payment-form',[PaymentController::class,'form'])->name('payment.form');
 Route::post('/pyament-store',[PaymentController::class,'store'])->name('payment.store');
 
