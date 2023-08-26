@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\dappointment;
 use App\Models\Payment;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -62,7 +63,7 @@ class PaymentController extends Controller
     }
 
 public function invoice($id){
-    $invoice = Payment::find($id);
+    $invoice = dappointment::find($id);
 
     if (!$invoice) {
         return redirect()->route('payment.index')->with('error', 'Invoice not found');

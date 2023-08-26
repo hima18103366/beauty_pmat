@@ -2,12 +2,12 @@
 @section('content')
 
 
-<html> 
+<html>
     <body>
         <h1>Doctor Appointment Table</h1>
 
         <a class="btn btn-primary" href="{{route('dappointment.form')}}">create</a>
-        
+
         <table class="table">
         <thead>
             <tr>
@@ -16,13 +16,13 @@
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
                 <th scope="col">Age</th>
-                <th scope="col">Contact Number</th> 
+                <th scope="col">Contact Number</th>
                 <th scope="col"> Payment Status</th>
                 <th scope="col">Transaction Id</th>
-                <th scope="col">Amount</th> 
+                <th scope="col">Amount</th>
 
-                
-                
+
+
             </tr>
         </thead>
         <tbody>
@@ -43,16 +43,18 @@
                 <a href="#" class="btn btn-primary">Token</a>
                 <a href="{{route('dappointment.prescription',$data->id)}}" class="btn btn-primary">Online Consultation</a>
                 <a href="{{route('doctor.prescription',$data->id)}}" class="btn btn-primary">Prescription </a>
-                
+
+                <a href="{{route('payment.invoice',$data->id)}}" class="btn btn-primary">Invoice</a>
+
             </td>
             </tr>
-            
-            @endforeach  
+
+            @endforeach
         </tbody>
         {{$dappointment->links()}}
     </table>
-    
-    
+
+
 </body>
 </html>
 @endsection
